@@ -1,0 +1,33 @@
+<div class="text-editor-wrapper">
+    <div class="text-editor">
+        
+        <mat-form-field class="box-input" appearance="fill">
+            <div class="input-prefix" *ngIf="customPrefix"> / </div>
+            <!-- [disabled]="disabled" -->
+            <input matInput
+                #input_text
+                [class.customPrefix]="customPrefix"
+                [formControl]="control"
+                [matAutocomplete]="auto"
+                [matAutocompletePosition]="'below'"
+                [placeholder]="placeholder"
+                [type]="inputType"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5"
+                [(ngModel)]="text"
+                (blur)="onBlur($event)"
+                (ngModelChange)="onChangeText($event)"/>
+            <div class="input-suffix" *ngIf="customPrefix"> / </div>
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (opened)="onOpenClose('open')" (closed)="onOpenClose('close')">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option" [title]="option">
+                  {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <!-- <div *ngIf="control.invalid && (control.dirty || control.touched)">
+            FIELD REQUIRED
+        </div> -->
+        
+    </div>
+</div> 

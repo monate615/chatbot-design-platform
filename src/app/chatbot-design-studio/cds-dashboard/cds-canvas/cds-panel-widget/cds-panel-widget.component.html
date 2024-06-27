@@ -1,0 +1,35 @@
+<div id="panel-tab">
+    <div id="preloader" *ngIf="loading">
+        <div class="logo"></div>
+    </div>
+
+    <div class="widget-wrp">
+        <!-- <div class="header">
+            close
+        </div> -->
+        <div class="content">
+
+            <div class="btn-wrp" [style.display]="iframeVisibility? 'none':'flex'">
+                <img src="assets/images/chatbot.svg" width="80">
+                <div id="text" class="title"> {{ 'TestYourChatbot' | translate }}</div>
+                <div id="text" class="description"> {{ 'StartTryingYourChatbot' | translate }}</div>
+                <!-- style="margin-left: 14px;" -->
+                <button id="cds-play-btn" class="btn btn-primary cds-blue-button" type="button"  (click)="startTest()">
+                    <span class="material-icons">
+                        play_arrow
+                    </span>
+                    {{ 'TestIt' | translate }}
+                </button>
+            </div>
+           <iframe allowfullscreen [style.display]="iframeVisibility? 'block':'none'"
+                #widgetIframe
+                id="widgetIframe"
+                style= "border:none;"
+                width = "100%" height = "100%"
+                [src]="widgetTestSiteUrl"
+                (load)="onLoaded($event)">
+            </iframe>
+        </div>
+    </div>
+    
+</div>

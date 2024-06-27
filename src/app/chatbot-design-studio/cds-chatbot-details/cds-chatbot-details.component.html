@@ -1,0 +1,71 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+        <ul class="cds-bottom-nav">
+          <li (click)="toggleTab(SETTINGS_SECTION.DETAIL)" class="btn-with-border-effect" 
+          [ngClass]="{ 'border-from-center' : activeSection !== SETTINGS_SECTION.DETAIL,
+                                'li-active' : activeSection === SETTINGS_SECTION.DETAIL }">
+
+            <a href="javascript:;" role="button">{{ "BotDetails" | translate }}</a>
+          </li>
+
+          <li (click)="toggleTab(SETTINGS_SECTION.IMPORT_EXPORT)" class="btn-with-border-effect" [ngClass]="
+                    { 'border-from-center' :  activeSection !== SETTINGS_SECTION.IMPORT_EXPORT, 
+                      'li-active' :           activeSection === SETTINGS_SECTION.IMPORT_EXPORT
+                    }">
+            <a href="javascript:;" role="button"> Import Export </a>
+          </li>
+
+          <li (click)="toggleTab(SETTINGS_SECTION.COMMUNITY)" class="btn-with-border-effect" [ngClass]="
+                    { 'border-from-center' :  activeSection !== SETTINGS_SECTION.COMMUNITY, 
+                      'li-active' :           activeSection === SETTINGS_SECTION.COMMUNITY
+                    }" *ngIf="BRAND_BASE_INFO['COMMUNITY_SECTION']">
+            <a href="javascript:;" role="button"> Community </a>
+          </li>
+
+          <li (click)="toggleTab(SETTINGS_SECTION.DEVELOPER)" class="btn-with-border-effect" [ngClass]="
+                    { 'border-from-center' :  activeSection !== SETTINGS_SECTION.DEVELOPER, 
+                      'li-active' :           activeSection === SETTINGS_SECTION.DEVELOPER
+                    }">
+            <a href="javascript:;" role="button"> {{ "Developer" | translate }} </a>
+          </li>
+          <li (click)="toggleTab(SETTINGS_SECTION.ADVANCED)" class="btn-with-border-effect" [ngClass]="
+                    { 'border-from-center' :  activeSection !== SETTINGS_SECTION.ADVANCED, 
+                      'li-active' :           activeSection === SETTINGS_SECTION.ADVANCED
+                    }">
+            <a href="javascript:;" role="button"> {{ "Advanced" | translate }} </a>
+          </li>
+        </ul>
+    </div>
+
+    <cds-detail-botdetail *ngIf="activeSection===SETTINGS_SECTION.DETAIL"
+      [selectedChatbot]="selectedChatbot"
+      [project]="project"
+      [isVisibleDEP]="isVisibleDEP"
+      [translationsMap]="translationsMap">
+    </cds-detail-botdetail>
+
+    <cds-detail-import-export *ngIf="activeSection===SETTINGS_SECTION.IMPORT_EXPORT"
+      [id_faq_kb]="selectedChatbot?._id"
+      [faqKb_name]="faqKb_name"
+      [translationsMap]="translationsMap">
+    </cds-detail-import-export>
+
+    <cds-detail-community *ngIf="activeSection===SETTINGS_SECTION.COMMUNITY"
+      [project]="project"
+      [selectedChatbot]="selectedChatbot"
+      [translationsMap]="translationsMap">
+    </cds-detail-community>
+
+    <cds-detail-developer *ngIf="activeSection===SETTINGS_SECTION.DEVELOPER"
+      [selectedChatbot]="selectedChatbot">
+    </cds-detail-developer>
+
+    <cds-detail-advanced *ngIf="activeSection===SETTINGS_SECTION.ADVANCED"
+      [selectedChatbot]="selectedChatbot"
+      [project]="project"
+      [translationsMap]="translationsMap">
+    </cds-detail-advanced>
+  </div>
+</div>
+

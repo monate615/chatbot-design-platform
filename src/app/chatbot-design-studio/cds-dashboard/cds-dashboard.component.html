@@ -1,0 +1,32 @@
+<div *ngIf="!initFinished" class="loader">
+</div>
+
+<div *ngIf="initFinished">
+    <cds-header 
+        class="cds-header" 
+        [IS_OPEN_SIDEBAR]="IS_OPEN_SIDEBAR" 
+        [selectedChatbot]="selectedChatbot"
+        (goToBck)="goBack()"
+        (toggleSidebarWith)="onToggleSidebarWith($event)">
+    </cds-header>
+
+    <div id="chatbot--dashboard" 
+        class="chatboat-dashboard" 
+        [class.is_opened_sidebar]="IS_OPEN_SIDEBAR">
+
+        <cds-changelog *ngIf="showChangelog" 
+            (onClose)="onCloseChangelog()">
+        </cds-changelog>
+
+        <cds-sidebar class="cds-sidebar" 
+            [IS_OPEN_SIDEBAR]="IS_OPEN_SIDEBAR">
+        </cds-sidebar>
+
+        <router-outlet></router-outlet>
+
+    </div>
+
+    <cds-popup></cds-popup>
+    
+</div>
+

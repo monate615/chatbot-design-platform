@@ -1,0 +1,178 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "cds": {
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "cds",
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "baseHref":"/",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "@firebase/component",
+              "@firebase/util",
+              "idb",
+              "moment"
+            ],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/design-studio-config-template.json",
+              "src/design-studio-config.json",
+              "src/environments/real_data/cds-config-firebase.json",
+              "src/environments/real_data/cds-config-native-prod.json",
+              "src/environments/real_data/cds-config-native-collaudo.json"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/@ng-select/ng-select/themes/default.theme.css",
+              "node_modules/material-icons/iconfont/material-icons.css",
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/@ctrl/ngx-emoji-mart/picker.css",
+              "src/styles.scss",
+              { "input" : "src/assets/sass/cds/tooltip-styles.scss", "inject": true, "bundleName": "cds-tooltip-style"},
+              { "input" : "src/assets/sass/material-dashboard.scss", "inject": true, "bundleName": "material-dashboard"},
+              { "input" : "src/assets/sass/cds/styles.scss", "inject": true, "bundleName": "cds-style"},
+              { "input" : "src/assets/sass/cds/action-styles.scss", "inject": true, "bundleName": "action-style"},
+              { "input" : "src/assets/sass/cds/settings-section.scss", "inject": false, "bundleName": "settings-section"}
+            ],
+            "scripts": [
+              { "input": "node_modules/jquery/dist/jquery.js", "inject": true, "bundleName": "jquery" },
+              { "input": "node_modules/bootstrap/dist/js/bootstrap.js", "inject": true, "bundleName": "bootstrap" },
+              { "input": "node_modules/bootstrap-notify/bootstrap-notify.js", "inject": true, "bundleName": "bootstrap-notify" },
+              { "input": "node_modules/moment/moment.js", "inject": true, "bundleName": "moment" },
+              { "input": "src/assets/js/mqtt/4.1.0/mqtt.min.js", "inject": false, "bundleName": "mqtt.min" }
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "3mb",
+                  "maximumError": "7mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "10kb",
+                  "maximumError": "20kb"
+                }
+              ],
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": false,
+                  "inlineCritical": true
+                },
+                "fonts": true
+              },
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "baseHref":"./",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "pre": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": false,
+                  "inlineCritical": true
+                },
+                "fonts": true
+              },
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "baseHref":"./",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.pre.ts"
+                }
+              ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "cds:build:production"
+            },
+            "development": {
+              "browserTarget": "cds:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cds:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

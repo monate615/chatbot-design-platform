@@ -1,0 +1,142 @@
+<div class="container-fluid" *ngIf="showWelcome" id="cds-globals-splash">
+    <cds-splash-screen
+        [text]="MEDIA['GLOBALS'].text | translate"
+        [section]="'cds-sb-globals'"
+        (onClickBtn)="addNew($event)" > 
+    </cds-splash-screen>
+</div>
+
+
+<div class="container-fluid" *ngIf="!showWelcome" id="cds-globals-list">
+
+    <!-- // HEADER - START -->
+    <div class="row">
+        <ul class="cds-bottom-nav">
+          <li class="btn-with-border-effect" 
+          [ngClass]="{ 'border-from-center' : false,
+                                'li-active' : true }">
+
+            <a href="javascript:;" role="button">{{ "CDSGlobals.Globals" | translate }}</a>
+          </li>
+        </ul>
+    </div>
+
+    <!-- <div class="header">
+        <label class="header-title">{{ "CDSGlobals.Globals" | translate }}</label>
+    </div> -->
+    <!-- // HEADER - END -->
+
+    <!-- // CONTENT - END -->
+    <div class="content" id="cds-globals-content">
+        <div class="info">
+            <div class="container-wrp">
+                <!-- <span class="material-icons-outlined">info</span> -->
+                <div>
+                    <label> {{ "CDSGlobals.InfoTitle" | translate }}</label>
+                    <label> {{ "CDSGlobals.InfoDescription" | translate }}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="secrets-list" id="cds-globals-list">
+            <div *ngFor="let global of list; let i = index;" class="global-inner-container">
+
+                <div class="field-box">
+                    <cds-text id="custom-input"
+                        class="text-editable-div disabled" 
+                        [text]="global.key"
+                        [disabled]="true"
+                        [placeholder]="'CDSGlobals.GLOBAL_KEY' | translate">
+                    </cds-text>
+                </div>
+
+                <div class="field-box password">
+                    <cds-text id="custom-input-value"
+                        class="text-editable-div disabled" 
+                        [text]="global.value"
+                        [disabled]="true"
+                        [placeholder]="'CDSGlobals.value' | translate">
+                    </cds-text>
+                    <span class="material-icons-outlined copy-icon" (click)="copyToClipboard(global.value)">content_copy</span>
+                </div>
+
+                <!-- <div class="input-container">
+                    <div class="fake-input">
+                        <span class="material-icons-outlined copy-icon"
+                            (click)="copyToClipboard(secret.value)">content_copy</span>
+                        <input type="text" *ngIf="!secret.visible" placeholder="value" value="•••••••••••••••"
+                            class="password" disabled>
+                        <input type="text" *ngIf="secret.visible" placeholder="value" value="{{secret.value}}" disabled>
+                        <div (click)="showHideSecret(secret)">
+                            <span *ngIf="secret.visible"
+                                class="material-icons-outlined visibility-icon">visibility_off</span>
+                            <span *ngIf="!secret.visible"
+                                class="material-icons-outlined visibility-icon">visibility</span>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="field-box">
+                    <button id="cds-custom-icon-button"
+                        class="btn btn-primary cds-blue-button" 
+                        [matMenuTriggerFor]="menu" aria-label="Actions">
+                        <span class="material-icons">more_vert</span>
+                    </button>
+                </div>
+
+                    
+                <mat-menu #menu="matMenu" xPosition="before" yPosition="below" class="menuOptions">
+                    <ng-template matMenuContent>
+                        <div class="menu-box">
+                            <div class="menu-btns-wpr" (click)="showUpdateSecret(i, global)">
+                                <div class="menu-btn-icon">
+                                    <span class="material-icons-outlined">edit</span>
+                                </div>
+                                <div class="menu-btn-text truncate">{{ "Edit" | translate}}</div>
+                            </div>
+                        </div>
+                        <div class="action-box">
+                            <div class="menu-btns-wpr" (click)="deleteElement(global.key)">
+                                <div class="menu-btn-icon">
+                                    <span class="material-icons-outlined">delete</span>
+                                </div>
+                                <div class="menu-btn-text truncate">{{ "Delete" | translate}}</div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </mat-menu>
+
+            </div>
+            <div class="add-btn-wrp">
+                <div></div>
+                <button type="button" class="btn btn-primary cds-blue-button" (click)="addNew()">
+                    <span class="material-icons icon plus-icon">add</span>
+                    {{ "Add" | translate }}
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <!-- // CONTENT - END -->
+
+
+    <!-- // FOOTER - START -->
+    <!-- <div class="footer">
+        <div class="container-wrp">
+            <span class="material-icons-outlined">info</span>
+            <div>
+                <label> Use variables to reuse values and protect sensitive data</label>
+                <label> Store sensitive data in variables type secret to keep its values masked on the screen. <br> Work with the current value of a variable to prevent sharing sensitive values with your team</label>
+            </div>
+        </div>
+    </div> -->
+    <!-- // FOOTER - END -->
+</div>
+
+<cds-global-panel-detail *ngIf="IS_OPEN_PANEL_GLOBAL_DETAIL"
+    id="global-detail" 
+    class="cds-generic-panel"
+    [global]="selectedGlobal"
+    (onGlobalChange)="onGlobalChange($event)">
+</cds-global-panel-detail>
+

@@ -1,0 +1,252 @@
+@import "./src/assets/sass/cds/settings-section.scss";
+
+.cds-bottom-nav div {
+    float: left;
+    padding: 15px;
+    list-style: none;
+    position: relative;
+    display: block;
+    height: 53px;
+    border-bottom: 2px solid var(--blu-light-02);
+    cursor: pointer;
+}
+
+.cds-bottom-nav div a {
+    padding: 0px 15px;
+    color: var(--blu-light-02);
+    line-height: 20px;
+}
+
+.cds-bottom-nav div a:hover {
+    text-decoration: none;
+    //  background-color: #eee;
+}
+
+.li-active {
+    border-bottom: 2px solid var(--blu) !important;
+    pointer-events: none;
+}
+.li-active a {
+    color: var(--blu) !important;
+}
+.disabled-li {
+    pointer-events: none;
+}
+
+.flex-div{
+    display: flex;
+    & div.cds--custom-label{
+        width: 50%;
+        height: unset;
+    }
+}
+
+ng-select {
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: #fff;
+    // border-top: 1px solid #c0c0c0;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-left: 8px;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    // border: solid 1px #ddd;
+    margin: 0px;
+    padding: 0px;
+
+    &.ng-select-opened {
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    
+}
+
+::ng-deep {
+    .ng-select .ng-select-container {
+        border-radius: var(--input-border-radius-base);
+        border: 1px solid var(--blu-light-02);
+    }
+}
+
+.cds-community-btns-wrp {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 10px;
+    margin: 0 15px;
+}
+
+.link {
+    margin: 0;
+
+    .material-icons {
+        transform: rotate(135deg);
+    }
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
+
+.title-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons-inside {
+    height: 40px;
+    position: relative;
+    display: block;
+    top: 3px;
+}
+
+/*
+/* Tags
+/* ------------------------------------ */
+.cds-select-chatbot-tags-wpr {
+    height: 78px;
+    margin-top: 12px;
+}
+
+.csd-chatbot-tags--container {
+    // height: 198px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.cds-chatbot-tag-wpr {
+    background: #f0f1f2;
+    height: 24px;
+    border-radius: 16px;
+    border: 1px solid #d2d4d6;
+    padding: 0px 6px;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.cds-chatbot-tag-wpr:hover {
+    background: #fff;
+}
+
+.cds-chatbot-tag {
+    color: #3d4047;
+    // font-weight: 300;
+}
+
+.cds-chatbot-tag-delete-icon-wpr {
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.bot-description-note {
+    display: block;
+    font-size: 10px;
+}
+
+.cds-mandatory {
+    color: #9aa0a6;
+    font-size: 11px;
+    height: 36px;
+    padding-top: 7px;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: right !important;
+}
+
+.chatbot-community-wpr,
+.row {
+    margin-right: 0px;
+    margin-left: 8px;
+}
+
+.csd-community-required-field {
+    font-size: 12px;
+    color: var(--color-red-hex); 
+    font-weight: 400;
+    display: block;
+}
+
+/* Btn effect
+/* ********************************* */
+.btn-with-border--effect {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    // margin: 1em;
+    // padding: 1em 2em;
+    //   padding-bottom: 37px;
+    font-size: 14px;
+    font-weight: 300;
+
+    // Required, since we're setting absolute on pseudo-elements
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.border-from-center {
+    &:hover {
+        color: var(--blu);
+    }
+
+    // Set up base styles, we're going to scale instead of animating width/height
+    &::before,
+    &::after {
+        top: 3px;
+        // top: 0px;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transform-origin: center; // Ensure scaling is done from the center (expands outwards)
+    }
+
+    // scale3d(<scale-horizontal>, <scale-vertical>, <scale-depth>);
+    &::before {
+        // border-top: 2px solid $purple;
+        border-bottom: 3px solid var(--blu);
+        transform: scale3d(0, 1, 1); // Shrink only width
+    }
+
+    &:hover::before,
+    &:hover::after {
+        transform: scale3d(1, 1, 1); // Show full-size
+        transition: transform 0.5s;
+    }
+}
+
+
+.community-tab {
+    display: flex;
+    gap: 30px;
+}
+
+
+#scrollMe{
+    max-height: calc(100vh - 250px);
+    overflow: auto;
+    overflow-y: scroll;
+}

@@ -1,0 +1,71 @@
+:host {
+    width: 100%;
+}
+
+
+.rules-container{
+    display: flex;
+    flex-direction: column;
+
+    .new-rules-box{
+        display: flex;
+        align-self: flex-end;
+        margin: 30px; 
+    }
+
+    .welcome_message_wrp{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        // padding: 25px calc(20%);
+        gap: 10px;
+        text-align: center;
+        transition: .5s;
+        opacity: 1;
+    }
+
+    .new-rules-button {
+        display: flex;
+        flex-direction: row;
+        font-size: 25px;
+        align-items: center;
+        border: 1px;
+        padding: 15px 40px;
+        border-radius: 16px;
+        cursor: pointer;
+        background: white;
+        border: solid 1px white;
+    
+        .plus-icon {
+            // font-size: 16px;
+            color: #1e293b;
+        }
+    
+        .button-text {
+            margin-bottom: 0px;
+            color: #1e293b;
+        }
+    }
+
+    .button-wrp{
+        margin: 20px;
+    }
+
+    .new-rules-button:hover {
+
+        background-color: #1e293b;
+        border: 1px solid white;
+
+        .plus-icon {
+            color: white;
+        }
+
+        .button-text {
+            color: white;
+        }
+    }
+    
+
+}

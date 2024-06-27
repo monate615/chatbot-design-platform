@@ -1,0 +1,37 @@
+<div class="chatbot-details-wpr">
+    <div class="row">
+      <div class="col-sm-10 col-md-10">
+        <h3 class="card_title__underlined">
+          <span class="card_title__underline">
+            {{ 'BotsAddEditPage.ResolutionBotLanguage' | translate }}
+          </span>
+        </h3>
+      </div>
+      <div class="col-sm-10 col-md-10">
+        <div class="section-subtitle"> </div>
+      </div>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Bot language  -->
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <div class="row" style="margin-bottom: 16px;">
+        <!-- style="padding-top: 0px; line-height: 1.2;" -->
+        <label class="col-sm-2 cds--custom-label">
+            {{ 'Language' | translate }}
+        </label>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+          <div class="input-group">
+            <input id="bot-default-selected-lang" 
+              class="input csd-chatbot-dtls-input" 
+              name="bot-default-selected-lang" 
+              [(ngModel)]="botDefaultSelectedLang"
+              type="text" 
+              disabled>
+            <button id="csd-update-bot-btn" class="btn btn-primary pull-left cds-blue-button" (click)="updateBotLanguage()">
+                {{ 'Change' | translate }}
+            </button>
+          </div>
+        </div>
+    </div>
+</div>

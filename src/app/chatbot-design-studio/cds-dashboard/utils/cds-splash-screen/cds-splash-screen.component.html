@@ -1,0 +1,35 @@
+<div class="cds-ss-main-content">
+    <div class="cds-ss-welcome-wpr">
+        <img class="logo" [src]="LOGOS_ITEMS['BASE_LOGO_NO_TEXT'].icon">
+        <div class="cds-ss-txt">
+            {{BRAND_BASE_INFO['META_TITLE']}}
+        </div>
+    </div>
+
+    <!-- ******* VIDEO SECTION ******* -->
+    <div class="welcome_video" *ngIf="canShowVideo">
+        <div class="welcome_subtitle" [innerHTML]="videoDescription"></div>
+        <iframe 
+            width="500" 
+            height="345" 
+            [src]="url" 
+            frameborder="0" 
+            allowfullscreen 
+            allow='autoplay;encrypted-media;'>
+        </iframe>
+    </div>
+
+     <!-- ******* TEXT + BUTTON SECTION ******* -->
+    <div class="welcome_subtitle" [innerHTML]="text"></div>
+    <div class="button-wrp">
+        <!-- <div class="new-rules-button" (click)="addNew()">
+            <span class="material-icons icon plus-icon">add</span>
+            <p class="button-text">Add</p>
+        </div> -->
+
+        <button id="cds-ss-add-intent-btn" type="button" class="btn btn-primary cds-blue-button" (click)="onAdd()"> 
+            <span class="material-icons icon plus-icon">add</span>
+            {{ 'Add' | translate}}
+        </button>
+    </div>
+</div>

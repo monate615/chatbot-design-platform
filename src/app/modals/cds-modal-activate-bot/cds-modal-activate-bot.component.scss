@@ -1,0 +1,229 @@
+@import "./src/assets/sass/cds/_variables.scss";
+
+:host{
+    --content-background: rgb(244, 246, 251, 0.4);
+}
+.cds-modal-content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    height: 400px
+}
+
+.cds-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    div.header-title {
+        margin:0px;
+        font-weight: 600;
+        color: #22272d;
+    }
+    mat-dialog-actions{
+        text-align: right;
+        padding: 0;
+        min-height: auto;
+        margin: 0;
+    }
+    button {
+        background: transparent;
+        border: unset;
+        position: relative;
+        padding: 0px;
+    }
+}
+
+.cds-modal-body{
+    display: flex;
+    height: 100%;
+
+    .modal-flex{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        gap: 10px;
+        padding: 10px 30px;
+    }
+
+    .bot_name_bold {
+        font-weight: 400 !important;
+    }
+
+    .main-text{
+      font-weight: 500;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    span{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .install-wrp{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background-color: var(--content-background);
+      border: 1px solid var(--gray-light-02);
+      border-radius: 8px;
+      padding: 10px;
+      gap: 20px;
+
+      .title{
+        font-size: 17px;
+        line-height: 17px;
+        font-weight: 500;
+        color: var(--blu);
+      }
+      .subtitle{
+        font-size: 13px;
+        color: var(--gray);
+      }
+      span.material-icons-outlined{
+        color: var(--blu);
+      }
+      &:hover{
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+
+}
+
+.cds-modal-footer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+
+    #ignoreBtn{
+        background-color: var(--blu-light-02);
+    }
+
+}
+
+div.code{
+  // background-color: var(--content-background);
+  background-color: rgb(43, 47, 50);
+  border: 1px solid var(--gray-light-02);
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+
+  pre {
+    display: block;
+    overflow-x: auto;
+    padding: 0px 24px;
+    color: rgb(174 172 172);
+    font-family: "Fira Code";
+    font-size: 13px;
+    margin: 0px;
+    line-height: 16px;
+  }
+
+  code{
+    display: block;
+
+    ::ng-deep {
+      .fNZzEh{
+        color: rgb(228, 163, 152);
+      }
+      .eKLHPw{
+        color: rgb(101, 159, 253)
+      }
+      .dSxEd{
+        color: rgb(214, 215, 164)
+      }
+      .qwEds{
+        color: rgb(134, 211, 247)
+      }
+    }
+  }
+
+  span.material-icons{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--color-white-hex);
+    font-size: 22px;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.8;
+    }
+  }
+}
+
+
+cds-select#departments ::ng-deep{
+  // padding: 6px 0;
+  width: 80%;
+  .ng-select-container{
+      height: 37px;
+      border-radius: 8px 0px 0px 8px;
+      border: 1px solid rgb(118, 118, 118) !important;
+  }
+}
+
+
+
+// ------------------------------------------------
+// for the svg in the modal Hook The Bot
+// ------------------------------------------------
+.path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+    &.circle {
+      -webkit-animation: dash 0.9s ease-in-out;
+      animation: dash 0.9s ease-in-out;
+    }
+    &.line {
+      stroke-dashoffset: 1000;
+      -webkit-animation: dash 0.9s 0.35s ease-in-out forwards;
+      animation: dash 0.9s 0.35s ease-in-out forwards;
+    }
+    &.check {
+      stroke-dashoffset: -100;
+      -webkit-animation: dash-check 0.9s 0.35s ease-in-out forwards;
+      animation: dash-check 0.9s 0.35s ease-in-out forwards;
+    }
+  }
+  
+  @-webkit-keyframes dash {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @-webkit-keyframes dash-check {
+    0% {
+      stroke-dashoffset: -100;
+    }
+    100% {
+      stroke-dashoffset: 900;
+    }
+  }
+  
+  @keyframes dash-check {
+    0% {
+      stroke-dashoffset: -100;
+    }
+    100% {
+      stroke-dashoffset: 900;
+    }
+  }

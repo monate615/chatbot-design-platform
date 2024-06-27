@@ -1,0 +1,109 @@
+<div class="panel-button-configuration">
+
+    <div class="header-panel">
+        <div class="action-title">
+            <div class="icon-action">
+                <span class="material-icons-outlined">smart_button</span>
+            </div>
+            <p class="label-action">{{ 'CDSPanelButtons.Button' | translate}}</p>
+        </div>
+        <div class="button-tab-close" (click)="onCloseButtonPanel()">
+            <span class="material-icons">chevron_right</span>
+        </div> 
+    </div> 
+
+
+
+    <div class="content-panel-button-configuration no-footer" id="scrollMe">
+       
+        <div class="field-box">
+            <label class="title-label">
+                {{ 'CDSPanelButtons.ButtonTitle' | translate}}
+            </label>
+            <cds-textarea 
+                class="text-editable-div"
+                [text]="buttonLabel" 
+                [minRow]="1" [maxRow]="1"
+                popoverVerticalAlign="above"
+                [emojiPikerBtn]="true"
+                (blur)="onBlur($event)"
+                (changeTextarea)="onChangeTitle($event)">
+            </cds-textarea>
+        </div>
+        
+        <div class="field-box">
+            <label class="title-label">
+                {{ 'CDSPanelButtons.Type' | translate}}
+            </label>
+            <cds-select #select_action id="select-action"
+                [items]="buttonTypes"
+                [bindLabelSelect]="'label'"
+                [bindValueSelect]="'value'"
+                [itemSelected]="buttonType"
+                (onSelected)="onChangeTypeButton($event)">
+            </cds-select>
+        </div>
+
+        <div *ngIf="buttonType === typeOfButton.URL">
+
+            <div class="field-box">
+                <label class="title-label">
+                    {{ 'CDSPanelButtons.OpenIn' | translate}}
+                </label>
+                <cds-select #select_action id="select-action"
+                    [items]="urlTypes"
+                    [bindLabelSelect]="'label'"
+                    [bindValueSelect]="'value'"
+                    [itemSelected]="urlType"
+                    (onSelected)="onChangeOpenIn($event)">
+                </cds-select>
+            </div>
+
+            <div class="field-box" [ngClass]="{'is-error':errorUrl === true}">
+                <label class="title-label">
+                    {{ 'Url' | translate }}
+                </label>
+                <cds-textarea 
+                    class="text-editable-div"
+                    [text]="buttonUrl" 
+                    [minRow]="1" [maxRow]="2"
+                    [emojiPikerBtn]="false"
+                    (blur)="onBlur($event)"
+                    (changeTextarea)="onChangeUrl($event)">
+                </cds-textarea>
+            </div> 
+
+        </div>
+        
+
+        <div *ngIf="buttonType === typeOfButton.ACTION">
+            <div class="field-box">
+                <label class="title-label">
+                    {{ 'CDSPanelButtons.GoToBlock' | translate}}
+                </label>
+                <cds-select #select_action id="select-action"
+                    [items]="listOfIntents"
+                    [bindLabelSelect]="'name'"
+                    [bindValueSelect]="'value'"
+                    [itemSelected]="buttonAction"
+                    (onSelected)="onChangeGoToBlock($event)">
+                </cds-select>
+                <cds-attributes
+                    *ngIf="buttonAction"
+                    #cds_attributes
+                    id="cds-attributes"
+                    class = "cds-attributes"
+                    [openBlock]="openBlockAttributes"
+                    [attributes]="buttonAttributes"
+                    (changeAttributes)="onChangeAttributes($event)"
+                ></cds-attributes>
+            </div>
+        </div>
+       
+    </div> 
+
+</div>
+
+
+
+

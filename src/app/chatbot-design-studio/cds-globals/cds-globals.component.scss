@@ -1,0 +1,345 @@
+@import "./src/assets/sass/cds/_variables.scss";
+
+:host {
+    --text-color: #{var(--blu)};
+    --icon-color: #{var(--gray-light-01)};
+    --text-hover-color: #{var(--blu)};
+    --icon-hover-color: #{var(--blu)};
+
+    --header-height: 40px;
+    --footer-height: 60px;
+
+    width: 100%;
+}
+
+.container-fluid{
+    height: 100%;
+}
+
+.cds-container {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 10px;
+}
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.cds-bottom-nav {
+    background-color: #fff;
+    width: 100%;
+    // z-index: 1028;
+    position: relative;
+    padding-bottom: 5px;
+    float: left;
+    height: 50px;
+    padding-left: 0px;
+    // display: flex;
+    // flex-grow: 1;
+}
+
+.cds-bottom-nav li {
+    float: left;
+    padding: 15px;
+    list-style: none;
+    position: relative;
+    display: block;
+    height: 52px;
+    border-bottom: 3px solid var(--blu-light-02);
+    cursor: pointer;
+}
+
+.cds-bottom-nav li a {
+    padding: 0px 15px;
+    color: var(--blu-light-02);
+    line-height: 20px;
+}
+
+.cds-bottom-nav li a:hover {
+    text-decoration: none;
+    //  background-color: #eee;
+}
+
+.li-active {
+    border-bottom: 3px solid var(--blu) !important;
+    pointer-events: none;
+}
+.li-active a {
+    color: var(--blu) !important;
+}
+
+// tab in general route
+.btn-with-border-effect {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    // margin: 1em;
+    // padding: 1em 2em;
+    //   padding-bottom: 37px;
+    font-size: 14px;
+    font-weight: 300;
+
+    // Required, since we're setting absolute on pseudo-elements
+    position: relative;
+    vertical-align: middle;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.border-from-center {
+    &:hover {
+        color: var(--blu);
+    }
+
+    // Set up base styles, we're going to scale instead of animating width/height
+    &::before,
+    &::after {
+        top: 3px;
+        // top: 0px;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transform-origin: center; // Ensure scaling is done from the center (expands outwards)
+    }
+
+    // scale3d(<scale-horizontal>, <scale-vertical>, <scale-depth>);
+    &::before {
+        // border-top: 2px solid $purple;
+        border-bottom: 3px solid var(--blu);
+        transform: scale3d(0, 1, 1); // Shrink only width
+    }
+
+    &:hover::before,
+    &:hover::after {
+        transform: scale3d(1, 1, 1); // Show full-size
+        transition: transform 0.5s;
+    }
+}
+
+
+.content {
+    height: 80%;
+    padding: 10px;
+    display: grid;
+    column-gap: 5px;
+    grid-template-columns: 0.3fr 0.6fr;
+    justify-content: center;
+}
+
+.info{
+   .container-wrp{
+        // background-color: rgba( var(--gray-light-02), 0.4);
+        display: flex;
+        padding: 10px;
+        border-radius: 8px;
+        gap: 5px;
+       
+        div{
+            display: flex;
+            flex-direction: column;
+        }
+        label:first-child{
+            font-weight: 300;
+            font-size: 16px;
+            color: var(--blu)
+        }
+        label{
+            font-size: 12px;
+        }
+    }
+}
+
+.add-btn-wrp{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.1fr;
+    gap: 5px;
+
+    button.cds-blue-button{
+        justify-self: end;
+    }
+}
+
+.secret-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.global-list {
+    margin-top: 20px;
+    overflow-y: scroll;
+}
+
+.global-inner-container {
+    display: grid;
+    justify-content: flex-start;
+    gap: 5px;
+    grid-template-columns: 0.5fr 0.5fr 0.1fr;
+}
+
+
+/** **** MAT-MENU : start **** **/
+::ng-deep .mat-menu-panel.menuOptions {
+    min-width: 100px;
+    max-width: 400px;
+    width: 185px;
+    color: var(--blu);
+    font-size: 15px;
+    line-height: 18px;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    // box-shadow: #1321440a 0 12px 24px, #1321440a 0 8px 12px, #13214405 0 4px 4px, #13214403 0 2px 2px, #13214403 0 1px 1px, #11316008 0 0, #1131600f 0 0 0 1px;
+    border-radius: 8px;
+    background: rgb(255,255,255);
+    will-change: transform;
+    animation: .15s ease 0s 1 normal none running fadein, .15s ease 0s 1 normal none running movein, .1s ease 0s 1 normal none running scaleY;
+    margin: 0;
+    border: 2px solid var(--gray-02);
+    box-shadow: none;
+
+    position: absolute;
+    top: -36px;
+    right: 26px;
+    margin: 0px 5px
+}
+
+::ng-deep .menuOptions{
+    .mat-menu-content{
+        padding: 5px !important;
+    }
+}
+.menu-box{
+    padding: 0px var(--base-padding);
+}
+
+.menu-btns-wpr {
+    // width: 136px; // dp
+    width: 100%; // nk
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+
+    
+
+    &:hover{
+        cursor: pointer;
+        box-shadow: #1321440a 0 12px 24px, #1321440a 0 8px 12px, #13214405 0 4px 4px, #13214403 0 2px 2px, #13214403 0 1px 1px, #11316008 0 0, #1131600f 0 0 0 1px;
+        
+        span.material-icons-outlined,
+        img{
+            color: var(--text-hover-color);
+            filter: brightness(0) saturate(100%) invert(35%) sepia(48%) saturate(441%) hue-rotate(183deg) brightness(97%) contrast(88%); 
+            cursor: pointer; 
+        }
+
+        .menu-btn-text{
+            color: var(--text-hover-color);
+        }
+    }
+
+}
+
+.menu-btn-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span.material-icons-outlined,
+    img{
+        width: 16px;
+        font-size: 16px;
+        color: var(--icon-color);
+        filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(504%) hue-rotate(151deg) brightness(92%) contrast(88%);
+    }
+
+
+}
+.menu-btn-text{
+    display: inline-flex;
+    color: var(--text-color);
+    padding: 0;
+    vertical-align: middle;
+    font-size: 11px;
+    font-weight: 400;
+}
+/** **** MAT-MENU : end **** **/
+
+.field-box.password{
+    position: relative;
+    span.material-icons,
+    span.material-icons-outlined{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+}
+
+#cds-custom-icon-button {
+    border-radius: 8px;
+    height: 36px;
+    width: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--color-white-hex);
+    color: var(--blu);
+    .material-icons{
+        font-size: 22px;
+    }
+}
+
+.copy-icon:hover {
+    font-weight: 600 !important;
+}
+
+
+
+.cds-generic-panel{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    height: 100%;
+    transform: translateX(100%);
+    animation: slide-in 0.3s ease-in-out forwards;
+    animation-delay: 0.2s;
+  
+    &#global-detail{
+      z-index: 10
+    }
+}
+  
+@keyframes slide-in {
+    to {
+      transform: translateX(0);
+    }
+}
+
+
+cds-text#custom-input-value ::ng-deep{
+    input{
+        padding: 4px 30px 4px 8px !important;
+    }
+}

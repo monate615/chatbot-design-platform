@@ -1,0 +1,199 @@
+.select-item-wrp{
+    width: 100%; 
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+}
+
+::ng-deep{
+
+    
+    .ng-dropdown-panel .ng-dropdown-panel-items {
+        .ng-optgroup{
+            padding: 0 15px;
+            color: #9ba6b3;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        .ng-option{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+
+            span.material-icons{
+                font-size: 20px;
+                padding: 0px 4px;
+                color: var(--blu-light-02);
+
+                &.intent-start{
+                    color: var(--color-green-hex);
+                }
+                &.intent-defaultFallback{
+                    color: var(--color-red-hex)
+                }
+            }
+
+            span.label-select {
+                margin-right: 4px;
+                color: var(--blu);
+                line-height: 17px;
+            }
+
+            span.label-select-option {
+                color: #a8a8a8;
+            }
+
+            span.description {
+                width: 80%;
+                font-size: 12px;
+                margin-bottom: 0px;
+                color: #a8a8a8;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            // &.ng-option-marked {
+            //     // background-color: rgba(var(--blu-light-02), .23) !important;
+            // }
+
+            // &.ng-option-selected{
+            //     // background-color: rgba(var(--blu-light-02), .43) !important;
+
+            //     // span.label-select-option {
+            //     //     color: #848484;
+            //     // }
+
+            //     // span.description {
+            //     //     color: #848484;
+            //     // }
+            // }
+
+            &:hover {
+                .icon-container {
+                    display: flex;
+                }
+            }
+            
+        }
+    }
+
+    .ng-select .ng-select-container {
+        height: 43px;
+        border-radius: var(--input-border-radius-base);
+        border: 1px solid var(--blu-light-02);
+        .ng-value {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+    
+            span.material-icons{
+                font-size: 20px;
+                padding: 0px 4px;
+                color: var(--blu-light-03);
+
+                &.intent-start{
+                    color: var(--color-green-hex);
+                }
+                &.intent-defaultFallback{
+                    color: var(--color-red-hex)
+                }
+            }
+
+            span.label-select {
+                margin-right: 4px;
+                color: var(--gray);
+            }
+
+            span.label-select-option {
+                color: #a8a8a8;
+            }
+            
+        }
+
+        .ng-clear-wrapper{
+            height: 14px;
+            width: 14px;
+            display: flex;
+        }
+
+    } 
+
+    .ng-value-container .ng-input{
+        display: flex;
+        // top: 0px !important;
+        // height: 43px;
+    }
+
+    .ng-clear-wrapper{
+        height: 14px;
+        width: 14px;
+        display: flex;
+
+    }
+
+    .ng-dropdown-panel,
+    .ng-select.ng-select-opened>.ng-select-container{
+        border: 1px solid var(--blu-light-02);
+    }
+    .ng-dropdown-panel .ng-dropdown-footer {
+        border-top: 1px solid #ededed;
+        padding: 0px !important;
+    }
+
+    .ng-dropdown-panel.ng-select-bottom,
+    .ng-dropdown-panel.ng-select-bottom .ng-dropdown-panel-items .ng-option:last-child{
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;  
+    }
+
+    .ng-placeholder {
+        font-size: 14px;
+    }
+
+    
+}
+
+.add-new-kb-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    height: 37px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #ededed;
+    }
+
+    .material-icons-outlined {
+        font-size: 20px;
+        margin-right: 8px;
+    }
+
+}
+
+.icon-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    //padding: 4px;
+
+    .custom-icon {
+        color: #ff400060;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .custom-icon {
+            color: #ff4000;
+        }
+
+    }
+}

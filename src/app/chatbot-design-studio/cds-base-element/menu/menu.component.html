@@ -1,0 +1,46 @@
+<div id="menu_div" class="actions-drawer" #panel_menu_div >
+ 
+        <div *ngIf="menuTitle" class="menu-title truncate">
+            {{menuTitle}}
+        </div>
+        <div class="menu-box" *ngFor="let item of items">
+            <div class="menu-btns-wpr" (click)="onItemClick(item)">
+                <div class="menu-btn-icon">
+                    <span class="material-icons-outlined" *ngIf="!item.localIcon">{{item.icon}}</span>
+                    <img class="icon" *ngIf="item.localIcon" [src]="item.icon"/>
+                </div>
+                <div class="menu-btn-text truncate"
+                    [ngClass]="{'external-link': item.type === TYPE_URL.BLANK }">{{ item.label | translate}}</div>
+                <span class="material-icons-outlined menu-btn-text" *ngIf="item.type === TYPE_URL.BLANK">open_in_new</span>
+                
+            </div>
+        </div>
+        <!-- <div class="action-box" (click)="exportChatbotToJSON()">
+            <div class="menu-btns-wpr">
+                <div class="menu-btn-icon">
+                    <span class="material-icons-outlined"> file_download</span>
+                </div>
+                <div class="menu-btn-text truncate">{{ 'Export' | translate}}</div>
+            </div>
+        </div>
+        <div class="action-box" (click)="onGoBack()">
+            <div class="menu-btns-wpr">
+                <div class="menu-btn-icon">
+                    <span class="material-icons-outlined">logout</span>
+                </div>
+                <div class="menu-btn-text truncate">{{ 'Logout' | translate}}</div>
+            </div>
+        </div> -->
+
+        <hr class="custom-divider" *ngIf="menuType && items.length > 0">
+
+        <div class="menu-btn-text current-user truncate" >
+            <span *ngIf="menuType === 'header'">{{loggedUser?.email}}</span>
+            <span *ngIf="menuType === 'sidebar'" 
+                matTooltipClass="custom-mat-tooltip-in-settings-sidebar" matTooltip="© 2024 {{BRAND_BASE_INFO.BRAND_NAME}} ver {{version}}" #tooltip="matTooltip"
+                matTooltipPosition='right' matTooltipHideDelay="100">
+                © 2024 {{BRAND_BASE_INFO.BRAND_NAME}} ver {{version}}
+            </span>
+        </div>
+
+</div>

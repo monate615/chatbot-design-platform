@@ -1,0 +1,53 @@
+:host{
+    --selectedColor: #{var(--blu)};
+    --text-color : #{var(--blu-light-02)};
+}
+
+.section{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap:20px;
+    // height: 60px;
+    margin: 0px 0px 5px 40px;
+
+    .section-label{
+        margin:0px;
+    }
+    
+    
+
+    mat-radio-group ::ng-deep {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        mat-radio-button{
+            margin-right: 20px;
+    
+        }
+
+        .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+            border-color: var(--selectedColor) 
+        }
+        
+        .mat-radio-button.mat-accent .mat-radio-inner-circle{
+            color: var(--selectedColor);
+            background-color: var(--selectedColor);
+        }
+        
+        .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+            background-color: var(--selectedColor);
+        }
+
+    }
+
+    cds-text{
+        display: flex;
+        width: 100%;
+    }
+
+    mat-chip.mat-chip-selected{
+        background-color: var(--selectedColor)
+    }
+}

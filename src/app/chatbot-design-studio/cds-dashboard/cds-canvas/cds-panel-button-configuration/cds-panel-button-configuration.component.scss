@@ -1,0 +1,195 @@
+@import "./src/assets/sass/cds/_variables.scss";
+
+.panel-button-configuration{
+    display: flex;
+    width: 450px;
+    height: 100%;
+    flex-direction: column;
+    animation: width 0.9s ease-in-out;
+    background-color: white;
+    border-left: 1px solid var(--gray-light-02);
+}
+
+.emoji-picker {
+    position: absolute;
+    right: 10px;
+    bottom: -4px;
+}
+
+.box-emoji-mart {
+    height: 1px;
+    visibility: hidden;
+    &.picker-visible {
+        height: auto;
+        visibility: visible;
+    }
+}
+
+
+
+
+
+// .header-panel:before {
+//     content: "";
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     z-index: 0;
+//     height: 1px;
+//     background-color: #6474913d;
+// }
+
+.header-panel {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--blu-light-03);
+    z-index: 2;
+    padding: 10px;
+    padding-left: 20px;
+    .button-tab-close {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -12px;
+        cursor: pointer;
+        span {
+            background: white;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 4px 0px;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blu);
+            transition: background-color 0.3s ease 0s;
+        }
+        &:hover{
+            span.material-icons,
+            span.material-icons-outlined{
+                background-color: var(--blu);
+                color: var(--blu-light-04);
+            }
+        }
+    }    
+}
+
+.action-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    max-width: calc(100% - 70px);
+
+    .icon-action {
+        transition: opacity .15s ease 0s;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        // margin-right: 6px;
+        // align-self: start;
+        color: var(--blu);
+        background: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .label-action {
+        overflow-x: clip;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+        color: var(--blu);
+    }
+}
+
+
+
+
+
+
+
+
+.content-panel-button-configuration {
+    
+    .cds-attributes {
+        margin-top: 20px;
+        display: block;
+    }
+}
+
+
+
+
+
+/** NG-SELECT **/
+.ng-select.ng-select-focused>.ng-select-container {
+    border-color: var(--color-red-hex);
+    box-shadow: inset 0 1px 1px #00000013,0 0 0 3px #007eff1a;
+}
+.ng-select.form-control-select{
+    text-align: start;
+}
+
+/** FORM GROUP **/
+.form-group {
+    .form-control {
+        background-size: 0 2px,0% 1px;
+    }
+}
+.form-group.is-focused {
+    .form-control {
+        background-size: 100% 2px,100% 1px;
+    }
+}
+
+.form-group.is-error {
+    .form-control {
+        outline: none;
+        background-image: linear-gradient(var(--color-red-hex),var(--color-red-hex)),
+            linear-gradient(var(--gray-light-01),var(--gray-light-01));
+        background-size: 100% 2px,100% 1px;
+        box-shadow: none;
+        transition-duration: .3s;
+    }
+    .ng-select {
+        &.form-control-select ::ng-deep .ng-select-container  { 
+            display: flex;
+            outline: none;
+            background-image: linear-gradient(var(--color-red-hex),var(--color-red-hex)),
+                linear-gradient(var(--gray-light-01),var(--gray-light-01));
+            background-size: 100% 2px,100% 1px;
+            box-shadow: none;
+            transition-duration: .3s;
+        }
+    }
+}
+
+::ng-deep .ng-dropdown-panel {
+    .ng-dropdown-panel-items {
+        max-height: 200px;
+        overflow: scroll;
+    }
+}
+
+/** box-textarea **/
+cds-textarea.text-editable-div ::ng-deep{
+    display: block;
+    textarea {
+        width: calc(100% - 1.5em) !important;
+    }
+}
+  

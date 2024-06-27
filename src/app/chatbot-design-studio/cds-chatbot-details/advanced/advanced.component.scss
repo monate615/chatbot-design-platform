@@ -1,0 +1,82 @@
+@import "./src/assets/sass/cds/settings-section.scss";
+
+
+ng-select {
+    font-size: var(--font-size-base);
+    width: 40%;
+    margin-bottom: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--color-white-hex);;
+    // border-top: 1px solid #c0c0c0;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-left: 8px;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    // border: solid 1px #ddd;
+    margin: 0px;
+    padding: 0px;
+
+    &.ng-select-opened {
+        border-radius: 5px 5px 0px 0px;
+    }    
+}
+
+::ng-deep .ng-select .ng-select-container {
+    border-radius: var(--input-border-radius-base);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid var(--blu-light-02);
+}
+
+.csd-chatbot-dtls-input {
+    max-width: 400px;
+}
+
+
+#csd-update-bot-btn {
+    border: 0px;
+    border-top-right-radius: var(--input-border-radius-base);
+    border-bottom-right-radius: var(--input-border-radius-base);
+}
+
+.cds--custom-label {
+    text-align: right !important;
+}
+
+@media (max-width: 768px) {
+    .cds-custom-label {
+        height: 0px !important;
+    }
+    .webhook-url-label {
+        text-align: left !important;
+        position: relative;
+        top: -17px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .onoffswitch-wrapper {
+        top: -41px;
+    }
+
+    .cds-bot_avatar_label {
+        display: none !important;
+    }
+}
+
+/* REMOVE THE BORDER THAT IS USED TO SHOW THAT THE ELEMENT IS FOCUSED */
+*:focus {
+    outline: none;
+}
+
+
+.chatbot-details-wpr,
+.row {
+    margin-right: 0px;
+    margin-left: 8px;
+    align-items: center;
+}

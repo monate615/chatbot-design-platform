@@ -1,0 +1,90 @@
+:host {
+    --background-color: #{var(--blu-light-01)};
+    --text-color: #{var(--blu)};
+}
+
+.title-label {
+    font-size: 16px;
+}
+
+.action-wait-content{
+    margin-top: 30px;
+}
+.action-wait-slider {
+    align-items: center;
+    background: var(--background-color);
+    border-radius: 13px;
+    display: inline-flex;
+    position: relative;
+    height: 26px;
+    padding: 0 9px 0 3px;
+    width: 100%;
+    text-align: center;
+    transition: width 0.3s ease-in;
+    font-size: var(--font-size-base);
+}
+
+.action-wait-slider > mat-slider {
+    width: 100%;
+    margin-left: 6px;
+}
+
+.action-wait-range {
+    color: var(--text-color);
+    font-size: 11px;
+    font-weight: 400;
+    padding-left: 6px;
+}
+
+.wait-action-title {
+    font-family: var(--font-family-poppins);
+    color: #e8eaed;
+}
+
+
+.action-wait-slider ::ng-deep{
+    .mat-accent .mat-slider-track-fill {
+        background-color: var(--text-color) !important;
+    }
+    .mat-slider-thumb-label {
+        background-color: var(--text-color) !important;
+    }
+    .mat-slider-thumb-label-text{
+        color: var(--background-color) !important;
+    }
+    .mat-slider-thumb {
+        background-color: var(--text-color) !important;
+    }
+}
+
+/* Action delay preview
+/* ------------------------ */
+.action-delay-preview {
+    align-items: center;
+    background: var(--blu-light-01);;
+    border-radius: 13px;
+    display: inline-flex;
+    position: relative;
+    height: 26px;
+    padding: 0 9px 0 3px;
+    text-align: center;
+    transition: width 0.3s ease-in;
+    font-size: var(--font-size-base);
+    // top: 3px;
+}
+.action-delay-preview .delay--icon {
+    padding-right: 4px;
+    color: var(--blu);
+}
+
+.action-delay-preview .delay--time {
+    color: var(--blu);
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.material-icons{
+    line-height: unset;
+}
